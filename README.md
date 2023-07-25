@@ -22,12 +22,11 @@ The login application consists of the following pages:
 3. `create_user_process.php`: The backend script that handles user creation and inserts user data into the database.
 4. `dashboard.php`: An example dashboard page accessible to authenticated users. It shows user-specific information.
 5. `header.php`: A header file included in various pages to check user authentication and load necessary CSS and meta tags.
-6. `footer.php`: A footer file included in various pages to load required JavaScript.
-7. `password-forgot.php`: The page to request a password reset link. Users can enter their email address to receive the reset link via email.
-8. `password-forgot-confirm.php`: The confirmation page shown after a password reset link has been requested.
-9. `password-reset.php`: The page to reset the password after clicking the password reset link received via email.
-10. `user-created.php`: The success page displayed after successfully creating a new user account.
-11. `style.css`: The CSS file containing custom styles for the login page and other pages.
+6. `password-forgot.php`: The page to request a password reset link. Users can enter their email address to receive the reset link via email.
+7. `password-forgot-confirm.php`: The confirmation page shown after a password reset link has been requested.
+8. `password-reset.php`: The page to reset the password after clicking the password reset link received via email.
+9. `user-created.php`: The success page displayed after successfully creating a new user account.
+10. `index.php`: The main page of application with the user logged in.
 
 ## Technologies Used
 
