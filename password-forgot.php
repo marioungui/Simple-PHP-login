@@ -26,15 +26,15 @@ function sendResetEmail($email, $token) {
     // $mail->Port = 587; // Set the SMTP port (typically 587 for tls)
 
     // Set the From and Reply-To addresses
-    $mail->setFrom('from@example.com', 'Your Website'); // Replace with your email and website name
-    $mail->addReplyTo('reply-to@example.com', 'Your Website'); // Replace with your reply-to email and website name
+    $mail->setFrom('trazapp@'. FQDN , APP_NAME." | ".APP_VERSION); // Replace with your email and website name
+    $mail->addReplyTo('mario@'. FQDN , 'Your Website'); // Replace with your reply-to email and website name
 
     // Set the recipient
     $mail->addAddress($email);
 
     // Set email subject and body
     $mail->Subject = 'Password Reset Request';
-    $mail->Body = "Click the link to reset your password: https://".$_SERVER['SERVER_NAME']."/password-reset.php?token=$token";
+    $mail->Body = "Click the link to reset your password: ". DOMAIN . ROOT_URL ."password-reset.php?token=$token";
 
     // Send the email
     if (!$mail->send()) {
@@ -91,25 +91,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forgot Password</title>
+    <title>Cambiar contraseña | <?=APP_NAME?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">Forgot Password</h2>
+                <h2 class="card-title">Recuperar tu contraseña:</h2>
                 <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
                     <div class="alert alert-danger" role="alert">
-                        Email not found. Please check your email address.
+                        El E-mail no es válido. Verifica que has ingresado el mail correcto
                     </div>
                 <?php endif; ?>
                 <form action="password-forgot.php" method="POST">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">E-mail</label>
                         <input type="email" name="email" id="email" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Reset Password</button>
+                    <button type="submit" class="btn btn-primary">Recuperar Acceso</button>
                 </form>
             </div>
         </div>
