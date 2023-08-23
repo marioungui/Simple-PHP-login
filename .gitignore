@@ -1,2 +1,5 @@
 
 config.php
+.htaccess
+php.ini
+user.ini
