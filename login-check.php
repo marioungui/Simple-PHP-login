@@ -12,7 +12,7 @@ function authenticateUser($username, $password) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Prepare the SQL statement to fetch user information based on the username
-        $stmt = $pdo->prepare("SELECT id, username, email, password_hash, role FROM users WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute([$username]);
 
         // Fetch the user data (if found) into an associative array
@@ -25,6 +25,9 @@ function authenticateUser($username, $password) {
             $_SESSION['username'] = $userData['username'];
             $_SESSION['email'] = $userData['email'];
             $_SESSION['user_role'] = $userData['role'];
+            $_SESSION['full_name'] = $userData['full_name'];
+            $_SESSION['business'] = $userData['business'];
+            $_SESSION['user_since'] = $userData['created_at'];
             // Add any other relevant user information you want to store in $_SESSION
 
             // Return true to indicate successful authentication

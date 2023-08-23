@@ -1,4 +1,5 @@
 <?php
+require "config.php";
 // Start session to check if the user is logged in (you can modify this part based on your authentication mechanism)
 session_start();
 
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         // Establish a database connection using PDO
-        $dsn = 'mysql:host=localhost;dbname=tomapp';
+        $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
         $pdo = new PDO($dsn, 'root', '');
 
         // Set PDO error mode to exception

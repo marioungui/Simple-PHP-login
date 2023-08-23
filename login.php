@@ -1,43 +1,86 @@
+<?php 
+require_once "config.php";
+session_start();
+function estaIngresado() {
+    return isset($_SESSION['username']);
+  }
+  if (estaIngresado()) {
+    header("Location: ".ROOT_URL);
+    exit;
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Login</h2>
-        <?php if (isset($_GET['reset'])): ?>
-            <?php if ($_GET['reset'] === 'success'): ?>
-                <div class="alert alert-success" role="alert">
-                    Your password has been reset successfully. You can now log in with your new password.
+    <style>
+        .login {
+        min-height: 100vh;
+        }
+
+        .bg-image {
+        background-image: url('assets/img/login-bg.jpg');
+        background-size: cover;
+        background-position: 50% 70%;
+        }
+
+        .login-heading {
+        font-weight: 300;
+        }
+
+        .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        padding: 0.75rem 1rem;
+    }
+    </style>    
+    <div class="container-fluid ps-md-0">
+        <div class="row g-0">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-lg-8 mx-auto">
+                    <h3 class="login-heading mb-4"><?=APP_NAME?></h3>
+
+                    <!-- Sign In Form -->
+                    <form action="login-check.php" method="POST">
+                        <?php
+                        if (isset($_GET['password']) && $_GET['password'] === 'false') {
+                            // Show an error message using Bootstrap alert
+                            echo '
+                            <div class="alert alert-danger" role="alert">
+                                Error: usuario o contraseña no válida
+                            </div>';
+                        }
+                        ?>
+                        <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="usuario">
+                        <label for="username">Nombre de usuario:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="contraseña">
+                        <label for="password">Contraseña:</label>
+                        </div>
+
+
+                        <div class="d-grid">
+                        <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Ingresar</button>
+                        <div class="text-center">
+                            <a class="small" href="password-forgot.php">Te olvidaste la contraseña?</a>
+                        </div>
+                        </div>
+
+                    </form>
+                    </div>
                 </div>
-            <?php elseif ($_GET['reset'] === 'invalid'): ?>
-                <div class="alert alert-danger" role="alert">
-                    The password reset link is invalid or has expired. Please request a new reset link.
                 </div>
-            <?php endif; ?>
-        <?php endif; ?>
-        <?php if (isset($_GET['password'])): ?>
-            <?php if ($_GET['password'] === 'false'): ?>
-                <div class="alert alert-danger" role="alert">
-                    Your password or user is not valid. Please try again.
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-        <form action="login-check.php" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        <div class="mt-3">
-            <a href="password-forgot.php">Forgot Password?</a>
         </div>
     </div>
 
