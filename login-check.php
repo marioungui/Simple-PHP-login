@@ -1,12 +1,13 @@
 <?php
+require "config.php";
 // Start session to store user login status
 session_start();
 
 function authenticateUser($username, $password) {
     try {
         // Establish a database connection using PDO
-        $dsn = 'mysql:host=localhost;dbname=tomapp';
-        $pdo = new PDO($dsn, 'root', '');
+        $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
 
         // Set PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

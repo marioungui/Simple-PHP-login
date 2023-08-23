@@ -1,8 +1,9 @@
 <?php
+require "config.php";
 require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 // Include your database connection file (replace 'your_db_host', 'your_db_username', 'your_db_password', and 'your_db_name' with actual values)
-$dsn = 'mysql:host=localhost;dbname=tomapp';
+$dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
 $username = 'root';
 $password = '';
 
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if the email exists in the database (you should have a users table in your database)
     try {
-        $pdo = new PDO($dsn, $username, $password);
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Check if the email exists in the users table
