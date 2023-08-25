@@ -1,4 +1,5 @@
 <?php
+require "config.php";
 // Include your database connection file (replace 'your_db_host', 'your_db_username', 'your_db_password', and 'your_db_name' with actual values)
 
 // Function to check if the reset token is valid and not expired
