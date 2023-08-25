@@ -76,19 +76,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Password Reset</title>
+    <title>Cambio de contraseña</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Password Reset</h2>
+        <h2>Cambio de contraseña</h2>
         <form action="password-reset.php" method="POST">
             <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
             <div class="form-group">
-                <label for="password">New Password</label>
+                <label for="password">Nueva contraseña</label>
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Reset Password</button>
+            <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
         </form>
     </div>
 
