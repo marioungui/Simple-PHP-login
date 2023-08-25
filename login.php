@@ -57,6 +57,13 @@ function estaIngresado() {
                                 Error: usuario o contraseña no válida
                             </div>';
                         }
+                        if (isset($_GET['reset']) && $_GET['reset'] === 'invalid') {
+                            // Show an error message using Bootstrap alert
+                            echo '
+                            <div class="alert alert-danger" role="alert">
+                                Hubo un error al cambiar y/o validar tu cambio de contraseña, intenta nuevamente iniciar el proceso.
+                            </div>';
+                        }
                         ?>
                         <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="username" id="username" placeholder="usuario">
