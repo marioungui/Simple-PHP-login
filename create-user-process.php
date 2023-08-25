@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         // Establish a database connection using PDO
-        $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
-        $pdo = new PDO($dsn, 'root', '');
+        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
 
         // Set PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
