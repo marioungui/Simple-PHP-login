@@ -7,10 +7,10 @@
 <body>
     <div class="container mt-5">
         <div class="alert alert-success" role="alert">
-            Password reset link has been sent to your email. Please check your inbox and follow the instructions to reset your password.
+            El link para cambiar la contraseña ha sido enviada a tu correo. Sigue las instrucciones para recuperar tu acceso.
         </div>
         <p>
-            <a href="login.php">Back to Login</a>
+            <a href="login.php">Volver a Login</a>
         </p>
     </div>
 

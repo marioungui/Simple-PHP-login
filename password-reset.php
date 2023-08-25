@@ -3,11 +3,9 @@
 
 // Function to check if the reset token is valid and not expired
 function isTokenValid($token) {
-    $dsn = 'mysql:host=localhost;dbname=tomapp';
-    $username = 'root';
-    $password = '';
+    $dsn = 'mysql:host='. DB_HOST .';dbname='. DB_NAME;
     try {
-        $pdo = new PDO($dsn, $username, $password);
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Check if the token exists and is not expired
@@ -31,11 +29,9 @@ function isTokenValid($token) {
 
 // Function to update the user's password
 function updatePassword($email, $newPassword) {
-    $dsn = 'mysql:host=localhost;dbname=tomapp';
-    $username = 'root';
-    $password = '';
+    $dsn = 'mysql:host='. DB_HOST .';dbname='. DB_NAME;
     try {
-        $pdo = new PDO($dsn, $username, $password);
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Update the user's password in the users table (replace 'users' with your user table name)
