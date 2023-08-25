@@ -64,6 +64,13 @@ function estaIngresado() {
                                 Hubo un error al cambiar y/o validar tu cambio de contraseña, intenta nuevamente iniciar el proceso.
                             </div>';
                         }
+                        if (isset($_GET['reset']) && $_GET['reset'] === 'success') {
+                            // Show an error message using Bootstrap alert
+                            echo '
+                            <div class="alert alert-success" role="alert">
+                                Se ha restaurado exitosamente la contraseña, ingresa con tu usuario y nueva contraseña para continuar.
+                            </div>';
+                        }
                         ?>
                         <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="username" id="username" placeholder="usuario">
