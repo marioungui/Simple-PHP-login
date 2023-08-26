@@ -239,6 +239,7 @@
                       <th>Nombre</th>
                       <th>Porcentaje</th>
                       <th>Nivel</th>
+                      <th>Fecha Registro</th>
                       <th class="text-right">Token ID:</th>
                   </thead>
                   <tbody>
@@ -247,6 +248,7 @@
                           <td><?php echo $row['full_name']; ?></td>
                           <td><?php echo round($row['porcentaje_si'], 2); ?>%</td>
                           <td class="tabla-nivel-<?=$row['class']?>"><?php echo $row['nivel']; ?></td>
+                          <td><?=$row['fecha_envio']?></td>
                           <td class="text-right"><?php echo $row['token']; ?></td>
                       </tr>
                       <?php } ?>
