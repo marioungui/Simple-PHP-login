@@ -4,13 +4,13 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini"> TA </a>
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal"> <?=APP_NAME?> </a>
+      <a href="<?php echo DOMAIN . ROOT_URL ?>" class="simple-text logo-mini"> TA </a>
+      <a href="<?php echo DOMAIN . ROOT_URL ?>" class="simple-text logo-normal"> <?=APP_NAME?> </a>
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
       <ul class="nav">
         <li class="active ">
-          <a href="/">
+          <a href="<?= ROOT_URL ?>">
             <i class="now-ui-icons design_app"></i>
             <p>Inicio</p>
           </a>
